@@ -57,9 +57,21 @@ class Wheel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'tire_pressure' => '\WheelSizeApiClient\Model\TirePressure',
         'rim' => 'string',
+        'rim_diameter' => 'float',
+        'rim_width' => 'float',
+        'rim_offset' => 'float',
         'tire' => 'string',
-        'tire_is_82series' => 'bool'
+        'tire_sizing_system' => 'string',
+        'tire_construction' => 'string',
+        'tire_width' => 'float',
+        'tire_aspect_ratio' => 'float',
+        'tire_diameter' => 'float',
+        'tire_section_width' => 'float',
+        'tire_is_82series' => 'bool',
+        'load_index' => 'int',
+        'speed_index' => 'string'
     ];
 
     /**
@@ -68,9 +80,21 @@ class Wheel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'tire_pressure' => null,
         'rim' => null,
+        'rim_diameter' => null,
+        'rim_width' => null,
+        'rim_offset' => null,
         'tire' => null,
-        'tire_is_82series' => null
+        'tire_sizing_system' => null,
+        'tire_construction' => null,
+        'tire_width' => null,
+        'tire_aspect_ratio' => null,
+        'tire_diameter' => null,
+        'tire_section_width' => null,
+        'tire_is_82series' => null,
+        'load_index' => null,
+        'speed_index' => null
     ];
 
     /**
@@ -100,9 +124,21 @@ class Wheel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'tire_pressure' => 'tire_pressure',
         'rim' => 'rim',
+        'rim_diameter' => 'rim_diameter',
+        'rim_width' => 'rim_width',
+        'rim_offset' => 'rim_offset',
         'tire' => 'tire',
-        'tire_is_82series' => 'tire_is_82series'
+        'tire_sizing_system' => 'tire_sizing_system',
+        'tire_construction' => 'tire_construction',
+        'tire_width' => 'tire_width',
+        'tire_aspect_ratio' => 'tire_aspect_ratio',
+        'tire_diameter' => 'tire_diameter',
+        'tire_section_width' => 'tire_section_width',
+        'tire_is_82series' => 'tire_is_82series',
+        'load_index' => 'load_index',
+        'speed_index' => 'speed_index'
     ];
 
     /**
@@ -111,9 +147,21 @@ class Wheel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'tire_pressure' => 'setTirePressure',
         'rim' => 'setRim',
+        'rim_diameter' => 'setRimDiameter',
+        'rim_width' => 'setRimWidth',
+        'rim_offset' => 'setRimOffset',
         'tire' => 'setTire',
-        'tire_is_82series' => 'setTireIs82series'
+        'tire_sizing_system' => 'setTireSizingSystem',
+        'tire_construction' => 'setTireConstruction',
+        'tire_width' => 'setTireWidth',
+        'tire_aspect_ratio' => 'setTireAspectRatio',
+        'tire_diameter' => 'setTireDiameter',
+        'tire_section_width' => 'setTireSectionWidth',
+        'tire_is_82series' => 'setTireIs82series',
+        'load_index' => 'setLoadIndex',
+        'speed_index' => 'setSpeedIndex'
     ];
 
     /**
@@ -122,9 +170,21 @@ class Wheel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'tire_pressure' => 'getTirePressure',
         'rim' => 'getRim',
+        'rim_diameter' => 'getRimDiameter',
+        'rim_width' => 'getRimWidth',
+        'rim_offset' => 'getRimOffset',
         'tire' => 'getTire',
-        'tire_is_82series' => 'getTireIs82series'
+        'tire_sizing_system' => 'getTireSizingSystem',
+        'tire_construction' => 'getTireConstruction',
+        'tire_width' => 'getTireWidth',
+        'tire_aspect_ratio' => 'getTireAspectRatio',
+        'tire_diameter' => 'getTireDiameter',
+        'tire_section_width' => 'getTireSectionWidth',
+        'tire_is_82series' => 'getTireIs82series',
+        'load_index' => 'getLoadIndex',
+        'speed_index' => 'getSpeedIndex'
     ];
 
     /**
@@ -187,9 +247,21 @@ class Wheel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['tire_pressure'] = isset($data['tire_pressure']) ? $data['tire_pressure'] : null;
         $this->container['rim'] = isset($data['rim']) ? $data['rim'] : null;
+        $this->container['rim_diameter'] = isset($data['rim_diameter']) ? $data['rim_diameter'] : null;
+        $this->container['rim_width'] = isset($data['rim_width']) ? $data['rim_width'] : null;
+        $this->container['rim_offset'] = isset($data['rim_offset']) ? $data['rim_offset'] : null;
         $this->container['tire'] = isset($data['tire']) ? $data['tire'] : null;
+        $this->container['tire_sizing_system'] = isset($data['tire_sizing_system']) ? $data['tire_sizing_system'] : null;
+        $this->container['tire_construction'] = isset($data['tire_construction']) ? $data['tire_construction'] : null;
+        $this->container['tire_width'] = isset($data['tire_width']) ? $data['tire_width'] : null;
+        $this->container['tire_aspect_ratio'] = isset($data['tire_aspect_ratio']) ? $data['tire_aspect_ratio'] : null;
+        $this->container['tire_diameter'] = isset($data['tire_diameter']) ? $data['tire_diameter'] : null;
+        $this->container['tire_section_width'] = isset($data['tire_section_width']) ? $data['tire_section_width'] : null;
         $this->container['tire_is_82series'] = isset($data['tire_is_82series']) ? $data['tire_is_82series'] : null;
+        $this->container['load_index'] = isset($data['load_index']) ? $data['load_index'] : null;
+        $this->container['speed_index'] = isset($data['speed_index']) ? $data['speed_index'] : null;
     }
 
     /**
@@ -218,6 +290,10 @@ class Wheel implements ModelInterface, ArrayAccess
         if ($this->container['tire_is_82series'] === null) {
             $invalidProperties[] = "'tire_is_82series' can't be null";
         }
+
+        if (null !== $this->container['speed_index'] && (mb_strlen($this->container['speed_index']) < 1)) {
+            $invalidProperties[] = "invalid value for 'speed_index', the character length must be bigger than or equal to 1.";
+        }
         return $invalidProperties;
     }
 
@@ -232,6 +308,30 @@ class Wheel implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets tire_pressure
+     *
+     * @return null|\WheelSizeApiClient\Model\TirePressure
+     */
+    public function getTirePressure()
+    {
+        return $this->container['tire_pressure'];
+    }
+
+    /**
+     * Sets tire_pressure
+     *
+     * @param null|\WheelSizeApiClient\Model\TirePressure $tire_pressure Tire pressure in different units (can be null)
+     *
+     * @return $this
+     */
+    public function setTirePressure($tire_pressure)
+    {
+        $this->container['tire_pressure'] = $tire_pressure;
+
+        return $this;
+    }
 
     /**
      * Gets rim
@@ -254,10 +354,82 @@ class Wheel implements ModelInterface, ArrayAccess
     {
 
         if ((mb_strlen($rim) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $rim when calling Wheel., must be bigger than or equal to 1.');
+            //throw new \InvalidArgumentException('invalid length for $rim when calling Wheel., must be bigger than or equal to 1.');
         }
 
         $this->container['rim'] = $rim;
+
+        return $this;
+    }
+
+    /**
+     * Gets rim_diameter
+     *
+     * @return float|null
+     */
+    public function getRimDiameter()
+    {
+        return $this->container['rim_diameter'];
+    }
+
+    /**
+     * Sets rim_diameter
+     *
+     * @param float|null $rim_diameter Rim diameter, in (e.g. 18.0, can be null)
+     *
+     * @return $this
+     */
+    public function setRimDiameter($rim_diameter)
+    {
+        $this->container['rim_diameter'] = $rim_diameter;
+
+        return $this;
+    }
+
+    /**
+     * Gets rim_width
+     *
+     * @return float|null
+     */
+    public function getRimWidth()
+    {
+        return $this->container['rim_width'];
+    }
+
+    /**
+     * Sets rim_width
+     *
+     * @param float|null $rim_width Rim width, in (e.g. 7.0, can be null)
+     *
+     * @return $this
+     */
+    public function setRimWidth($rim_width)
+    {
+        $this->container['rim_width'] = $rim_width;
+
+        return $this;
+    }
+
+    /**
+     * Gets rim_offset
+     *
+     * @return float|null
+     */
+    public function getRimOffset()
+    {
+        return $this->container['rim_offset'];
+    }
+
+    /**
+     * Sets rim_offset
+     *
+     * @param float|null $rim_offset Rim offset, mm (e.g. 38.0, can be null)
+     *
+     * @return $this
+     */
+    public function setRimOffset($rim_offset)
+    {
+        $this->container['rim_offset'] = $rim_offset;
 
         return $this;
     }
@@ -283,10 +455,154 @@ class Wheel implements ModelInterface, ArrayAccess
     {
 
         if ((mb_strlen($tire) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $tire when calling Wheel., must be bigger than or equal to 1.');
+            //throw new \InvalidArgumentException('invalid length for $tire when calling Wheel., must be bigger than or equal to 1.');
         }
 
         $this->container['tire'] = $tire;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_sizing_system
+     *
+     * @return string|null
+     */
+    public function getTireSizingSystem()
+    {
+        return $this->container['tire_sizing_system'];
+    }
+
+    /**
+     * Sets tire_sizing_system
+     *
+     * @param string|null $tire_sizing_system Tire sizing system (e.g. metric, can be null)
+     *
+     * @return $this
+     */
+    public function setTireSizingSystem($tire_sizing_system)
+    {
+        $this->container['tire_sizing_system'] = $tire_sizing_system;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_construction
+     *
+     * @return string|null
+     */
+    public function getTireConstruction()
+    {
+        return $this->container['tire_construction'];
+    }
+
+    /**
+     * Sets tire_construction
+     *
+     * @param string|null $tire_construction Tire constriction code (e.g. R, can be null)
+     *
+     * @return $this
+     */
+    public function setTireConstruction($tire_construction)
+    {
+        $this->container['tire_construction'] = $tire_construction;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_width
+     *
+     * @return float|null
+     */
+    public function getTireWidth()
+    {
+        return $this->container['tire_width'];
+    }
+
+    /**
+     * Sets tire_width
+     *
+     * @param float|null $tire_width Tire width, mm (e.g. 225.0, can be null)
+     *
+     * @return $this
+     */
+    public function setTireWidth($tire_width)
+    {
+        $this->container['tire_width'] = $tire_width;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_aspect_ratio
+     *
+     * @return float|null
+     */
+    public function getTireAspectRatio()
+    {
+        return $this->container['tire_aspect_ratio'];
+    }
+
+    /**
+     * Sets tire_aspect_ratio
+     *
+     * @param float|null $tire_aspect_ratio Aspect ratio, % (e.g. 55.0, can be null)
+     *
+     * @return $this
+     */
+    public function setTireAspectRatio($tire_aspect_ratio)
+    {
+        $this->container['tire_aspect_ratio'] = $tire_aspect_ratio;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_diameter
+     *
+     * @return float|null
+     */
+    public function getTireDiameter()
+    {
+        return $this->container['tire_diameter'];
+    }
+
+    /**
+     * Sets tire_diameter
+     *
+     * @param float|null $tire_diameter High flotation tire diameter, in (e.g. 31.0, can be null)
+     *
+     * @return $this
+     */
+    public function setTireDiameter($tire_diameter)
+    {
+        $this->container['tire_diameter'] = $tire_diameter;
+
+        return $this;
+    }
+
+    /**
+     * Gets tire_section_width
+     *
+     * @return float|null
+     */
+    public function getTireSectionWidth()
+    {
+        return $this->container['tire_section_width'];
+    }
+
+    /**
+     * Sets tire_section_width
+     *
+     * @param float|null $tire_section_width High flotation section width, in (e.g. 10.5, can be null)
+     *
+     * @return $this
+     */
+    public function setTireSectionWidth($tire_section_width)
+    {
+        $this->container['tire_section_width'] = $tire_section_width;
 
         return $this;
     }
@@ -314,6 +630,60 @@ class Wheel implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets load_index
+     *
+     * @return int|null
+     */
+    public function getLoadIndex()
+    {
+        return $this->container['load_index'];
+    }
+
+    /**
+     * Sets load_index
+     *
+     * @param int|null $load_index Load index (e.g. 98, can be null)
+     *
+     * @return $this
+     */
+    public function setLoadIndex($load_index)
+    {
+        $this->container['load_index'] = $load_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets speed_index
+     *
+     * @return string|null
+     */
+    public function getSpeedIndex()
+    {
+        return $this->container['speed_index'];
+    }
+
+    /**
+     * Sets speed_index
+     *
+     * @param string|null $speed_index Speed rating (e.g. H, can be null)
+     *
+     * @return $this
+     */
+    public function setSpeedIndex($speed_index)
+    {
+
+        if (null !== $speed_index && (mb_strlen($speed_index) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $speed_index when calling Wheel., must be bigger than or equal to 1.');
+        }
+
+        $this->container['speed_index'] = $speed_index;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *

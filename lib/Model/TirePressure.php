@@ -1,6 +1,6 @@
 <?php
 /**
- * WheelFasteners
+ * TirePressure
  *
  * PHP version 5
  *
@@ -32,43 +32,37 @@ namespace WheelSizeApiClient\Model;
 use \ArrayAccess;
 use \WheelSizeApiClient\ObjectSerializer;
 
-/**
- * WheelFasteners Class Doc Comment
- *
- * @category Class
- * @package  WheelSizeApiClient
- * @author   Swagger Codegen team
- * @link     https://github.com/swagger-api/swagger-codegen
- */
-class WheelFasteners implements ModelInterface, ArrayAccess
+class TirePressure implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
-    protected static $swaggerModelName = 'WheelFasteners';
+     * The original name of the model.
+     *
+     * @var string
+     */
+    protected static $swaggerModelName = 'TirePressure';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $swaggerTypes = [
-        'type' => 'string',
-        'thread_size' => 'string'
+        'bar' => 'float',
+        'psi' => 'float',
+        'k_pa' => 'float'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $swaggerFormats = [
-        'type' => null,
-        'thread_size' => null
+        'bar' => null,
+        'psi' => null,
+        'k_pa' => null
     ];
 
     /**
@@ -98,8 +92,9 @@ class WheelFasteners implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'thread_size' => 'thread_size'
+        'bar' => 'bar',
+        'psi' => 'psi',
+        'k_pa' => 'kPa'
     ];
 
     /**
@@ -108,8 +103,9 @@ class WheelFasteners implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'thread_size' => 'setThreadSize'
+        'bar' => 'setBar',
+        'psi' => 'setPsi',
+        'k_pa' => 'setKPa'
     ];
 
     /**
@@ -118,8 +114,9 @@ class WheelFasteners implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'thread_size' => 'getThreadSize'
+        'bar' => 'getBar',
+        'psi' => 'getPsi',
+        'k_pa' => 'getKPa'
     ];
 
     /**
@@ -163,9 +160,9 @@ class WheelFasteners implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -182,8 +179,9 @@ class WheelFasteners implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['thread_size'] = isset($data['thread_size']) ? $data['thread_size'] : null;
+        $this->container['bar'] = isset($data['bar']) ? $data['bar'] : null;
+        $this->container['psi'] = isset($data['psi']) ? $data['psi'] : null;
+        $this->container['k_pa'] = isset($data['k_pa']) ? $data['k_pa'] : null;
     }
 
     /**
@@ -194,13 +192,6 @@ class WheelFasteners implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (null !== $this->container['type'] && (mb_strlen($this->container['type']) < 1)) {
-            $invalidProperties[] = "invalid value for 'type', the character length must be bigger than or equal to 1.";
-        }
-        if (null !== $this->container['thread_size'] && (mb_strlen($this->container['thread_size']) < 1)) {
-            $invalidProperties[] = "invalid value for 'thread_size', the character length must be bigger than or equal to 1.";
-        }
 
         return $invalidProperties;
     }
@@ -213,58 +204,81 @@ class WheelFasteners implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-        return count($this->listInvalidProperties()) === 0;
+
+        return true;
     }
 
-
     /**
-     * Gets type
+     * Gets bar
      *
-     * @return string|null
+     * @return float
      */
-    public function getType()
+    public function getBar()
     {
-        return $this->container['type'];
+        return $this->container['bar'];
     }
 
     /**
-     * Sets type
+     * Sets bar
      *
-     * @param string|null $type Wheel Fasteners (e.g. Nut, can be null)
+     * @param float $bar Pressure, bar (e.g. `2.4`)
      *
      * @return $this
      */
-    public function setType($type)
+    public function setBar($bar)
     {
-        $this->container['type'] = $type;
+        $this->container['bar'] = $bar;
 
         return $this;
     }
 
     /**
-     * Gets thread_size
+     * Gets psi
      *
-     * @return string|null
+     * @return float
      */
-    public function getThreadSize()
+    public function getPsi()
     {
-        return $this->container['thread_size'];
+        return $this->container['psi'];
     }
 
     /**
-     * Sets thread_size
+     * Sets psi
      *
-     * @param string|null $thread_size Thread Size (e.g. M12 x 1.5, can be null)
+     * @param float $psi Pressure, psi (e.g. `35`)
      *
      * @return $this
      */
-    public function setThreadSize($thread_size)
+    public function setPsi($psi)
     {
-        $this->container['thread_size'] = $thread_size;
+        $this->container['psi'] = $psi;
 
         return $this;
     }
 
+    /**
+     * Gets k_pa
+     *
+     * @return float
+     */
+    public function getKPa()
+    {
+        return $this->container['k_pa'];
+    }
+
+    /**
+     * Sets k_pa
+     *
+     * @param float $k_pa Pressure, kPa (e.g. `240`)
+     *
+     * @return $this
+     */
+    public function setKPa($k_pa)
+    {
+        $this->container['k_pa'] = $k_pa;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -339,5 +353,3 @@ class WheelFasteners implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -58,7 +58,7 @@ class SearchByModelMeta implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
-        'regions' => 'string'
+        'regions' => 'string[]'
     ];
 
     /**
@@ -240,7 +240,7 @@ class SearchByModelMeta implements ModelInterface, ArrayAccess
     /**
      * Gets regions
      *
-     * @return string
+     * @return string[]
      */
     public function getRegions()
     {
@@ -250,7 +250,7 @@ class SearchByModelMeta implements ModelInterface, ArrayAccess
     /**
      * Sets regions
      *
-     * @param string $regions regions
+     * @param string[] $regions regions
      *
      * @return $this
      */
