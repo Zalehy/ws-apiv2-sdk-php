@@ -343,7 +343,7 @@ class Generation implements ModelInterface, ArrayAccess
     {
 
         if ((mb_strlen($platform) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $platform when calling Generation., must be bigger than or equal to 1.');
+            //throw new \InvalidArgumentException('invalid length for $platform when calling Generation., must be bigger than or equal to 1.');
         }
 
         $this->container['platform'] = $platform;

@@ -60,7 +60,7 @@ class RegionsData implements ModelInterface, ArrayAccess
         'slug' => 'string',
         'display' => 'string',
         'abbr' => 'string',
-        'countries' => 'string'
+        'countries' => 'string[]'
     ];
 
     /**
@@ -340,7 +340,7 @@ class RegionsData implements ModelInterface, ArrayAccess
     /**
      * Gets countries
      *
-     * @return string
+     * @return string[]
      */
     public function getCountries()
     {
@@ -350,7 +350,7 @@ class RegionsData implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param string $countries countries
+     * @param string[] $countries countries
      *
      * @return $this
      */

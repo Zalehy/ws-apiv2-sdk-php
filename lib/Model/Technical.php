@@ -58,8 +58,14 @@ class Technical implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'wheel_fasteners' => '\WheelSizeApiClient\Model\WheelFasteners',
+        'wheel_tightening_torque' => 'string',
+        'stud_holes' => 'int',
+        'pcd' => 'float',
         'centre_bore' => 'string',
         'bolt_pattern' => 'string',
+        'rear_axis_stud_holes' => 'int',
+        'rear_axis_pcd' => 'float',
+        'rear_axis_centre_bore' => 'float',
         'rear_axis_bolt_pattern' => 'string'
     ];
 
@@ -70,8 +76,14 @@ class Technical implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'wheel_fasteners' => null,
+        'wheel_tightening_torque' => null,
+        'stud_holes' => null,
+        'pcd' => null,
         'centre_bore' => null,
         'bolt_pattern' => null,
+        'rear_axis_stud_holes' => null,
+        'rear_axis_pcd' => null,
+        'rear_axis_centre_bore' => null,
         'rear_axis_bolt_pattern' => null
     ];
 
@@ -103,8 +115,14 @@ class Technical implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'wheel_fasteners' => 'wheel_fasteners',
+        'wheel_tightening_torque' => 'wheel_tightening_torque',
+        'stud_holes' => 'stud_holes',
+        'pcd' => 'pcd',
         'centre_bore' => 'centre_bore',
         'bolt_pattern' => 'bolt_pattern',
+        'rear_axis_stud_holes' => 'rear_axis_stud_holes',
+        'rear_axis_pcd' => 'rear_axis_pcd',
+        'rear_axis_centre_bore' => 'rear_axis_centre_bore',
         'rear_axis_bolt_pattern' => 'rear_axis_bolt_pattern'
     ];
 
@@ -115,8 +133,14 @@ class Technical implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'wheel_fasteners' => 'setWheelFasteners',
+        'wheel_tightening_torque' => 'setWheelTighteningTorque',
+        'stud_holes' => 'setStudHoles',
+        'pcd' => 'setPcd',
         'centre_bore' => 'setCentreBore',
         'bolt_pattern' => 'setBoltPattern',
+        'rear_axis_stud_holes' => 'setRearAxisStudHoles',
+        'rear_axis_pcd' => 'setRearAxisPcd',
+        'rear_axis_centre_bore' => 'setRearAxisCentreBore',
         'rear_axis_bolt_pattern' => 'setRearAxisBoltPattern'
     ];
 
@@ -127,8 +151,14 @@ class Technical implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'wheel_fasteners' => 'getWheelFasteners',
+        'wheel_tightening_torque' => 'getWheelTighteningTorque',
+        'stud_holes' => 'getStudHoles',
+        'pcd' => 'getPcd',
         'centre_bore' => 'getCentreBore',
         'bolt_pattern' => 'getBoltPattern',
+        'rear_axis_stud_holes' => 'getRearAxisStudHoles',
+        'rear_axis_pcd' => 'getRearAxisPcd',
+        'rear_axis_centre_bore' => 'getRearAxisCentreBore',
         'rear_axis_bolt_pattern' => 'getRearAxisBoltPattern'
     ];
 
@@ -193,8 +223,14 @@ class Technical implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['wheel_fasteners'] = isset($data['wheel_fasteners']) ? $data['wheel_fasteners'] : null;
+        $this->container['wheel_tightening_torque'] = isset($data['wheel_tightening_torque']) ? $data['wheel_tightening_torque'] : null;
+        $this->container['stud_holes'] = isset($data['stud_holes']) ? $data['stud_holes'] : null;
+        $this->container['pcd'] = isset($data['pcd']) ? $data['pcd'] : null;
         $this->container['centre_bore'] = isset($data['centre_bore']) ? $data['centre_bore'] : null;
         $this->container['bolt_pattern'] = isset($data['bolt_pattern']) ? $data['bolt_pattern'] : null;
+        $this->container['rear_axis_stud_holes'] = isset($data['rear_axis_stud_holes']) ? $data['rear_axis_stud_holes'] : null;
+        $this->container['rear_axis_pcd'] = isset($data['rear_axis_pcd']) ? $data['rear_axis_pcd'] : null;
+        $this->container['rear_axis_centre_bore'] = isset($data['rear_axis_centre_bore']) ? $data['rear_axis_centre_bore'] : null;
         $this->container['rear_axis_bolt_pattern'] = isset($data['rear_axis_bolt_pattern']) ? $data['rear_axis_bolt_pattern'] : null;
     }
 
@@ -271,6 +307,78 @@ class Technical implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets wheel_tightening_torque
+     *
+     * @return string|null
+     */
+    public function getWheelTighteningTorque()
+    {
+        return $this->container['wheel_tightening_torque'];
+    }
+
+    /**
+     * Sets wheel_tightening_torque
+     *
+     * @param string|null $wheel_tightening_torque Torque value or range (e.g. 125 Nm, can be null)
+     *
+     * @return $this
+     */
+    public function setWheelTighteningTorque($wheel_tightening_torque)
+    {
+        $this->container['wheel_tightening_torque'] = $wheel_tightening_torque;
+
+        return $this;
+    }
+
+    /**
+     * Gets stud_holes
+     *
+     * @return int|null
+     */
+    public function getStudHoles()
+    {
+        return $this->container['stud_holes'];
+    }
+
+    /**
+     * Sets stud_holes
+     *
+     * @param int|null $stud_holes Number of stud holes (e.g. 5, can be null)
+     *
+     * @return $this
+     */
+    public function setStudHoles($stud_holes)
+    {
+        $this->container['stud_holes'] = $stud_holes;
+
+        return $this;
+    }
+
+    /**
+     * Gets pcd
+     *
+     * @return float|null
+     */
+    public function getPcd()
+    {
+        return $this->container['pcd'];
+    }
+
+    /**
+     * Sets pcd
+     *
+     * @param float|null $pcd Pitch circle diameter, mm (e.g. 114.3, can be null)
+     *
+     * @return $this
+     */
+    public function setPcd($pcd)
+    {
+        $this->container['pcd'] = $pcd;
+
+        return $this;
+    }
+
+    /**
      * Gets centre_bore
      *
      * @return string
@@ -324,6 +432,78 @@ class Technical implements ModelInterface, ArrayAccess
         }
 
         $this->container['bolt_pattern'] = $bolt_pattern;
+
+        return $this;
+    }
+
+    /**
+     * Gets rear_axis_stud_holes
+     *
+     * @return int|null
+     */
+    public function getRearAxisStudHoles()
+    {
+        return $this->container['rear_axis_stud_holes'];
+    }
+
+    /**
+     * Sets rear_axis_stud_holes
+     *
+     * @param int|null $rear_axis_stud_holes Number of stud holes (e.g. 5, can be null)
+     *
+     * @return $this
+     */
+    public function setRearAxisStudHoles($rear_axis_stud_holes)
+    {
+        $this->container['rear_axis_stud_holes'] = $rear_axis_stud_holes;
+
+        return $this;
+    }
+
+    /**
+     * Gets rear_axis_pcd
+     *
+     * @return float|null
+     */
+    public function getRearAxisPcd()
+    {
+        return $this->container['rear_axis_pcd'];
+    }
+
+    /**
+     * Sets rear_axis_pcd
+     *
+     * @param float|null $rear_axis_pcd Pitch circle diameter, mm (e.g. 114.3, can be null)
+     *
+     * @return $this
+     */
+    public function setRearAxisPcd($rear_axis_pcd)
+    {
+        $this->container['rear_axis_pcd'] = $rear_axis_pcd;
+
+        return $this;
+    }
+
+    /**
+     * Gets rear_axis_centre_bore
+     *
+     * @return float|null
+     */
+    public function getRearAxisCentreBore()
+    {
+        return $this->container['rear_axis_centre_bore'];
+    }
+
+    /**
+     * Sets rear_axis_centre_bore
+     *
+     * @param float|null $rear_axis_centre_bore Centre bore diameter, mm (e.g. 64.1, can be null)
+     *
+     * @return $this
+     */
+    public function setRearAxisCentreBore($rear_axis_centre_bore)
+    {
+        $this->container['rear_axis_centre_bore'] = $rear_axis_centre_bore;
 
         return $this;
     }

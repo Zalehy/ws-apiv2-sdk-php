@@ -61,7 +61,7 @@ class ModelsData implements ModelInterface, ArrayAccess
         'name' => 'string',
         'name_en' => 'string',
         'regions' => 'string[]',
-        'year_ranges' => 'string'
+        'year_ranges' => 'string[]'
     ];
 
     /**
@@ -373,7 +373,7 @@ class ModelsData implements ModelInterface, ArrayAccess
     /**
      * Gets year_ranges
      *
-     * @return string
+     * @return string[]
      */
     public function getYearRanges()
     {
@@ -383,7 +383,7 @@ class ModelsData implements ModelInterface, ArrayAccess
     /**
      * Sets year_ranges
      *
-     * @param string $year_ranges year_ranges
+     * @param string[] $year_ranges year_ranges
      *
      * @return $this
      */

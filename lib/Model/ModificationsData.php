@@ -58,17 +58,20 @@ class ModificationsData implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'slug' => 'string',
+        'name' => 'string',
+        'body' => 'string',
+        'trim' => 'string',
         'trim_scoring' => 'float',
-        'trim_attributes' => 'string',
-        'trim_body_types' => 'string',
-        'trim_levels' => 'string',
+        'trim_attributes' => 'string[]',
+        'trim_body_types' => 'string[]',
+        'trim_levels' => 'string[]',
         'make' => '\WheelSizeApiClient\Model\MakesDataBase',
         'model' => '\WheelSizeApiClient\Model\ModelsDataBase',
         'generation' => '\WheelSizeApiClient\Model\Generation',
         'start_year' => 'int',
         'end_year' => 'int',
         'engine' => '\WheelSizeApiClient\Model\Engine',
-        'regions' => 'string'
+        'regions' => 'string[]'
     ];
 
     /**
@@ -78,6 +81,9 @@ class ModificationsData implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'slug' => null,
+        'name' => null,
+        'body' => null,
+        'trim' => null,
         'trim_scoring' => null,
         'trim_attributes' => null,
         'trim_body_types' => null,
@@ -119,6 +125,9 @@ class ModificationsData implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'slug' => 'slug',
+        'name' => 'name',
+        'body' => 'body',
+        'trim' => 'trim',
         'trim_scoring' => 'trim_scoring',
         'trim_attributes' => 'trim_attributes',
         'trim_body_types' => 'trim_body_types',
@@ -139,6 +148,9 @@ class ModificationsData implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'slug' => 'setSlug',
+        'name' => 'setName',
+        'body' => 'setBody',
+        'trim' => 'setTrim',
         'trim_scoring' => 'setTrimScoring',
         'trim_attributes' => 'setTrimAttributes',
         'trim_body_types' => 'setTrimBodyTypes',
@@ -159,6 +171,9 @@ class ModificationsData implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'slug' => 'getSlug',
+        'name' => 'getName',
+        'body' => 'getBody',
+        'trim' => 'getTrim',
         'trim_scoring' => 'getTrimScoring',
         'trim_attributes' => 'getTrimAttributes',
         'trim_body_types' => 'getTrimBodyTypes',
@@ -233,6 +248,9 @@ class ModificationsData implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['body'] = isset($data['body']) ? $data['body'] : null;
+        $this->container['trim'] = isset($data['trim']) ? $data['trim'] : null;
         $this->container['trim_scoring'] = isset($data['trim_scoring']) ? $data['trim_scoring'] : null;
         $this->container['trim_attributes'] = isset($data['trim_attributes']) ? $data['trim_attributes'] : null;
         $this->container['trim_body_types'] = isset($data['trim_body_types']) ? $data['trim_body_types'] : null;
@@ -325,6 +343,93 @@ class ModificationsData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Trim name. It may be empty for models made for the Japanese region. (e.g. `2.4i`, can be null)
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+
+        if (null !== $name && (mb_strlen($name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling ModificationsData., must be bigger than or equal to 1.');
+        }
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets body
+     *
+     * @return string|null
+     */
+    public function getBody()
+    {
+        return $this->container['body'];
+    }
+
+    /**
+     * Sets body
+     *
+     * @param string|null $body Body name. It is widespread in the Japanese region. (e.g. `DBA-GF8W`, can be null)
+     *
+     * @return $this
+     */
+    public function setBody($body)
+    {
+
+        if (null !== $body && (mb_strlen($body) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $body when calling ModificationsData., must be bigger than or equal to 1.');
+        }
+
+        $this->container['body'] = $body;
+
+        return $this;
+    }
+
+    /**
+     * Gets trim
+     *
+     * @return string|null
+     */
+    public function getTrim()
+    {
+        return $this->container['trim'];
+    }
+
+    /**
+     * Sets trim
+     *
+     * @param string|null $trim Trim name. It may be empty for models made for the Japanese region. (e.g. `2.4i`, can be null)
+     *
+     * @return $this
+     */
+    public function setTrim($trim)
+    {
+
+        if (null !== $trim && (mb_strlen($trim) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $trim when calling ModificationsData., must be bigger than or equal to 1.');
+        }
+
+        $this->container['trim'] = $trim;
+
+        return $this;
+    }
+
+    /**
      * Gets trim_scoring
      *
      * @return float
@@ -351,7 +456,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Gets trim_attributes
      *
-     * @return string
+     * @return string[]
      */
     public function getTrimAttributes()
     {
@@ -361,7 +466,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Sets trim_attributes
      *
-     * @param string $trim_attributes Trim attributes (e.g. `AWD`, can be __*`empty array`*__)
+     * @param string[] $trim_attributes Trim attributes (e.g. `AWD`, can be __*`empty array`*__)
      *
      * @return $this
      */
@@ -375,7 +480,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Gets trim_body_types
      *
-     * @return string
+     * @return string[]
      */
     public function getTrimBodyTypes()
     {
@@ -385,7 +490,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Sets trim_body_types
      *
-     * @param string $trim_body_types Trim body types (e.g. `Convertible`, can be __*`empty array`*__)
+     * @param string[] $trim_body_types Trim body types (e.g. `Convertible`, can be __*`empty array`*__)
      *
      * @return $this
      */
@@ -399,7 +504,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Gets trim_levels
      *
-     * @return string
+     * @return string[]
      */
     public function getTrimLevels()
     {
@@ -409,7 +514,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Sets trim_levels
      *
-     * @param string $trim_levels Trim Levels (e.g. `EX-L, Touring, Executive`, can be __*`empty array`*__)
+     * @param string[] $trim_levels Trim Levels (e.g. `EX-L, Touring, Executive`, can be __*`empty array`*__)
      *
      * @return $this
      */
@@ -567,7 +672,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Gets regions
      *
-     * @return string
+     * @return string[]
      */
     public function getRegions()
     {
@@ -577,7 +682,7 @@ class ModificationsData implements ModelInterface, ArrayAccess
     /**
      * Sets regions
      *
-     * @param string $regions regions
+     * @param string[] $regions regions
      *
      * @return $this
      */

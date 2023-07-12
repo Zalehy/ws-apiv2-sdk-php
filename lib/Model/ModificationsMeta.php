@@ -58,8 +58,8 @@ class ModificationsMeta implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'count' => 'int',
-        'engine' => 'map[string,string]',
-        'debug' => 'map[string,string]'
+        'engine' => 'map[string,string[]]',
+        'debug' => 'map[string,string[]]'
     ];
 
     /**
@@ -252,7 +252,7 @@ class ModificationsMeta implements ModelInterface, ArrayAccess
     /**
      * Gets engine
      *
-     * @return map[string,string]
+     * @return map[string,string[]]
      */
     public function getEngine()
     {
@@ -262,7 +262,7 @@ class ModificationsMeta implements ModelInterface, ArrayAccess
     /**
      * Sets engine
      *
-     * @param map[string,string] $engine engine
+     * @param map[string,string[]] $engine engine
      *
      * @return $this
      */
@@ -276,7 +276,7 @@ class ModificationsMeta implements ModelInterface, ArrayAccess
     /**
      * Gets debug
      *
-     * @return map[string,string]
+     * @return map[string,string[]]
      */
     public function getDebug()
     {
@@ -286,7 +286,7 @@ class ModificationsMeta implements ModelInterface, ArrayAccess
     /**
      * Sets debug
      *
-     * @param map[string,string] $debug debug
+     * @param map[string,string[]] $debug debug
      *
      * @return $this
      */
