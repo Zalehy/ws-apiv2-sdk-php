@@ -58,6 +58,9 @@ class SearchParamsModificationsData implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'slug' => 'string',
+        'name' => 'string',
+        'body' => 'string',
+        'trim' => 'string',
         'trim_attributes' => 'string',
         'trim_body_types' => 'string',
         'trim_levels' => 'string',
@@ -76,6 +79,9 @@ class SearchParamsModificationsData implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'slug' => null,
+        'name' => null,
+        'body' => null,
+        'trim' => null,
         'trim_attributes' => null,
         'trim_body_types' => null,
         'trim_levels' => null,
@@ -115,6 +121,9 @@ class SearchParamsModificationsData implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'slug' => 'slug',
+        'name' => 'name',
+        'body' => 'body',
+        'trim' => 'trim',
         'trim_attributes' => 'trim_attributes',
         'trim_body_types' => 'trim_body_types',
         'trim_levels' => 'trim_levels',
@@ -133,6 +142,9 @@ class SearchParamsModificationsData implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'slug' => 'setSlug',
+        'name' => 'setName',
+        'body' => 'setBody',
+        'trim' => 'setTrim',
         'trim_attributes' => 'setTrimAttributes',
         'trim_body_types' => 'setTrimBodyTypes',
         'trim_levels' => 'setTrimLevels',
@@ -151,6 +163,9 @@ class SearchParamsModificationsData implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'slug' => 'getSlug',
+        'name' => 'getName',
+        'body' => 'getBody',
+        'trim' => 'getTrim',
         'trim_attributes' => 'getTrimAttributes',
         'trim_body_types' => 'getTrimBodyTypes',
         'trim_levels' => 'getTrimLevels',
@@ -223,6 +238,9 @@ class SearchParamsModificationsData implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['body'] = isset($data['body']) ? $data['body'] : null;
+        $this->container['trim'] = isset($data['trim']) ? $data['trim'] : null;
         $this->container['trim_attributes'] = isset($data['trim_attributes']) ? $data['trim_attributes'] : null;
         $this->container['trim_body_types'] = isset($data['trim_body_types']) ? $data['trim_body_types'] : null;
         $this->container['trim_levels'] = isset($data['trim_levels']) ? $data['trim_levels'] : null;
@@ -305,6 +323,78 @@ class SearchParamsModificationsData implements ModelInterface, ArrayAccess
         }
 
         $this->container['slug'] = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Trim name. It may be empty for models made for the Japanese region. (e.g. 2.4i, can be null)
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets body
+     *
+     * @return string|null
+     */
+    public function getBody()
+    {
+        return $this->container['body'];
+    }
+
+    /**
+     * Sets body
+     *
+     * @param string|null $body Body name. It is widespread in the Japanese region. (e.g. DBA-GF8W, can be null)
+     *
+     * @return $this
+     */
+    public function setBody($body)
+    {
+        $this->container['body'] = $body;
+
+        return $this;
+    }
+
+    /**
+     * Gets trim
+     *
+     * @return string|null
+     */
+    public function getTrim()
+    {
+        return $this->container['trim'];
+    }
+
+    /**
+     * Sets trim
+     *
+     * @param string|null $trim Trim name. It may be empty for models made for the Japanese region. (e.g. 2.4i, can be null)
+     *
+     * @return $this
+     */
+    public function setTrim($trim)
+    {
+        $this->container['trim'] = $trim;
 
         return $this;
     }

@@ -57,7 +57,11 @@ class Engine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'fuel' => 'string',
+        'capacity' => 'string',
+        'type' => 'string',
+        'power' => '\WheelSizeApiClient\Model\Power',
+        'code' => 'string'
     ];
 
     /**
@@ -66,7 +70,11 @@ class Engine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'fuel' => null,
+        'capacity' => null,
+        'type' => null,
+        'power' => null,
+        'code' => null
     ];
 
     /**
@@ -96,7 +104,11 @@ class Engine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'fuel' => 'fuel',
+        'capacity' => 'capacity',
+        'type' => 'type',
+        'power' => 'power',
+        'code' => 'code'
     ];
 
     /**
@@ -105,7 +117,11 @@ class Engine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'fuel' => 'setFuel',
+        'capacity' => 'setCapacity',
+        'type' => 'setType',
+        'power' => 'setPower',
+        'code' => 'setCode'
     ];
 
     /**
@@ -114,7 +130,11 @@ class Engine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'fuel' => 'getFuel',
+        'capacity' => 'getCapacity',
+        'type' => 'getType',
+        'power' => 'getPower',
+        'code' => 'getCode'
     ];
 
     /**
@@ -177,6 +197,11 @@ class Engine implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['fuel'] = isset($data['fuel']) ? $data['fuel'] : null;
+        $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['power'] = isset($data['power']) ? $data['power'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
     }
 
     /**
@@ -201,6 +226,144 @@ class Engine implements ModelInterface, ArrayAccess
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets fuel
+     *
+     * @return string|null
+     */
+    public function getFuel()
+    {
+        return $this->container['fuel'];
+    }
+
+    /**
+     * Sets fuel
+     *
+     * @param string|null $fuel
+     *
+     * @return $this
+     */
+    public function setFuel($fuel)
+    {
+        if (null !== $fuel && (mb_strlen($fuel) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $fuel, must be bigger than or equal to 1.');
+        }
+
+        $this->container['fuel'] = $fuel;
+
+        return $this;
+    }
+
+    /**
+     * Gets capacity
+     *
+     * @return string|null
+     */
+    public function getCapacity()
+    {
+        return $this->container['capacity'];
+    }
+
+    /**
+     * Sets capacity
+     *
+     * @param string|null $capacity
+     *
+     * @return $this
+     */
+    public function setCapacity($capacity)
+    {
+        if (null !== $capacity && (mb_strlen($capacity) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $capacity, must be bigger than or equal to 1.');
+        }
+
+        $this->container['capacity'] = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        if (null !== $type && (mb_strlen($type) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $type, must be bigger than or equal to 1.');
+        }
+
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets power
+     *
+     * @return Power|null
+     */
+    public function getPower()
+    {
+        return $this->container['power'];
+    }
+
+    /**
+     * Sets power
+     *
+     * @param Power|null $power
+     *
+     * @return $this
+     */
+    public function setPower($power)
+    {
+        $this->container['power'] = $power;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code
+     *
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        if (null !== $code && (mb_strlen($code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $code, must be bigger than or equal to 1.');
+        }
+
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
 
     /**
      * Returns true if offset exists. False otherwise.
