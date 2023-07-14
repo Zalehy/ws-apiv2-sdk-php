@@ -1,6 +1,6 @@
 <?php
 /**
- * TirePressure
+ * Power
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \WheelSizeApiClient\ObjectSerializer;
 
 /**
- * TirePressure Class Doc Comment
+ * Power Class Doc Comment
  *
  * @category Class
  * @package  WheelSizeApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TirePressure implements ModelInterface, ArrayAccess
+class Power implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class TirePressure implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'TirePressure';
+    protected static $swaggerModelName = 'Power';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class TirePressure implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'bar' => 'float',
-        'psi' => 'float',
-        'k_pa' => 'float'
+        'ps' => 'float',
+        'hp' => 'float',
+        'k_w' => 'float'
     ];
 
     /**
@@ -68,9 +68,9 @@ class TirePressure implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'bar' => null,
-        'psi' => null,
-        'k_pa' => null
+        'ps' => null,
+        'hp' => null,
+        'k_w' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class TirePressure implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bar' => 'bar',
-        'psi' => 'psi',
-        'k_pa' => 'kPa'
+        'ps' => 'PS',
+        'hp' => 'hp',
+        'k_w' => 'kW'
     ];
 
     /**
@@ -111,9 +111,9 @@ class TirePressure implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bar' => 'setBar',
-        'psi' => 'setPsi',
-        'k_pa' => 'setKPa'
+        'ps' => 'setPs',
+        'hp' => 'setHp',
+        'k_w' => 'setKW'
     ];
 
     /**
@@ -122,9 +122,9 @@ class TirePressure implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bar' => 'getBar',
-        'psi' => 'getPsi',
-        'k_pa' => 'getKPa'
+        'ps' => 'getPs',
+        'hp' => 'getHp',
+        'k_w' => 'getKW'
     ];
 
     /**
@@ -187,9 +187,9 @@ class TirePressure implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bar'] = isset($data['bar']) ? $data['bar'] : null;
-        $this->container['psi'] = isset($data['psi']) ? $data['psi'] : null;
-        $this->container['k_pa'] = isset($data['k_pa']) ? $data['k_pa'] : null;
+        $this->container['ps'] = isset($data['ps']) ? $data['ps'] : null;
+        $this->container['hp'] = isset($data['hp']) ? $data['hp'] : null;
+        $this->container['k_w'] = isset($data['k_w']) ? $data['k_w'] : null;
     }
 
     /**
@@ -216,74 +216,75 @@ class TirePressure implements ModelInterface, ArrayAccess
         return true;
     }
 
+
     /**
-     * Gets bar
+     * Gets ps
      *
      * @return float
      */
-    public function getBar()
+    public function getPs()
     {
-        return $this->container['bar'];
+        return $this->container['ps'];
     }
 
     /**
-     * Sets bar
+     * Sets ps
      *
-     * @param float $bar Pressure, bar (e.g. `2.4`)
+     * @param float $ps Power, PS (e.g. `169`)
      *
      * @return $this
      */
-    public function setBar($bar)
+    public function setPs($ps)
     {
-        $this->container['bar'] = $bar;
+        $this->container['ps'] = $ps;
 
         return $this;
     }
 
     /**
-     * Gets psi
+     * Gets hp
      *
      * @return float
      */
-    public function getPsi()
+    public function getHp()
     {
-        return $this->container['psi'];
+        return $this->container['hp'];
     }
 
     /**
-     * Sets psi
+     * Sets hp
      *
-     * @param float $psi Pressure, psi (e.g. `35`)
+     * @param float $hp Power, hp (e.g. `166`)
      *
      * @return $this
      */
-    public function setPsi($psi)
+    public function setHp($hp)
     {
-        $this->container['psi'] = $psi;
+        $this->container['hp'] = $hp;
 
         return $this;
     }
 
     /**
-     * Gets k_pa
+     * Gets k_w
      *
      * @return float
      */
-    public function getKPa()
+    public function getKW()
     {
-        return $this->container['k_pa'];
+        return $this->container['k_w'];
     }
 
     /**
-     * Sets k_pa
+     * Sets k_w
      *
-     * @param float $k_pa Pressure, kPa (e.g. `240`)
+     * @param float $k_w Power, kW (e.g. `124`)
      *
      * @return $this
      */
-    public function setKPa($k_pa)
+    public function setKW($k_w)
     {
-        $this->container['k_pa'] = $k_pa;
+        $this->container['k_w'] = $k_w;
 
         return $this;
     }
@@ -294,7 +295,6 @@ class TirePressure implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -307,7 +307,6 @@ class TirePressure implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -321,7 +320,6 @@ class TirePressure implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -338,7 +336,6 @@ class TirePressure implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
